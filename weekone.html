@@ -1,7 +1,11 @@
-<!DOCTYPE html>
+<!DOCTYPE>
 <html>
 <head>
 	<title>Week One Notes</title>
+<!-- 	<link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+	<link rel="stylesheet" type="text/css" href="assets/css/style.css"> -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
 </head>
 <body>
 <!-- Class One Notes -->
@@ -15,57 +19,56 @@ There is frontend development where the developer builds the visuals displayed o
 There is also backend development where the data and logic stored on the server.  
 	</p>
 <!-- CSS Fix Image -->
-<img src="assests/fullstackdev.png">
+<img src="assets/images/fullstackdev.png">
 </div>
 <div>
 <!-- Format This Text -->
 <h1> Navigating Around the Git Bash</h1>
 	<p>Different Git Bash Commands: </p>
-		<li>pwd - This command prints the directory (place on your hard drive that stores files and folders) that you are in</li>
-		<li>ls - This command lists the directories and objects that are in your directory</li>
-		<li>cd Directory Name: This command changes the directory that you are working in </li>
-		<li>cd .. : This command changes the directory to the previous directory you were in</li>
-		<li>cd ~:This command changes the directory to the root directory</li>
-		<li>touch name of file to create - This command makes a new file</li>
-		<li>mkdir name of directory to create - This command makes a new folder</li>
-		<li>rm name of file to remove - This command deletes the named file</li>
-		<li>rm -r name of directory to remove - This command deletes the named directory</li>
-		<li>explorer name of file - This command opens the specified file or folder</li>
-		<li>explorer . - This command opens all files or folders in the directory</li>
+		<ul>pwd - This command prints the directory (place on your hard drive that stores files and folders) that you are in</ul>
+		<ul>ls - This command lists the directories and objects that are in your directory</ul>
+		<ul>cd Directory Name: This command changes the directory that you are working in </ul>
+		<ul>cd .. : This command changes the directory to the previous directory you were in</ul>
+		<ul>cd ~:This command changes the directory to the root directory</ul>
+		<ul>touch name of file to create - This command makes a new file</ul>
+		<ul>mkdir name of directory to create - This command makes a new folder</ul>
+		<ul>rm name of file to remove - This command deletes the named file</ul>
+		<ul>rm -r name of directory to remove - This command deletes the named directory</ul>
+		<ul>explorer name of file - This command opens the specified file or folder</ul>
+		<ul>explorer . - This command opens all files or folders in the directory</ul>
 </div>
 <div>
 <!-- Format This Text -->
 <h1>Intro to Console Bash Assignment</h1>
 	<p>From the Terminal/Console and using only the command line, create the following:
-<!-- Make it so that the li shows numbers instead of bullet points -->
-   	<li>1. A new folder with the name of first_day_stuff</li>
-   	<li>2. A new HTML file with the name of first_day.html</li>
-  	<li>3. Open the current folder containing the new HTML file.</li>
+   	<ul>1. A new folder with the name of first_day_stuff</ul>
+   	<ul>2. A new HTML file with the name of first_day.html</ul>
+  	<ul>3. Open the current folder containing the new HTML file.</ul>
   </p>
   <p> BONUS:<br>
    ======<br>
-  	<li>Create multiple directories/folders with the names one_folder and second_folder using a single command. </li>
+  	<ul>Create multiple directories/folders with the names one_folder and second_folder using a single command. </ul>
   
-  	<li>Create multiple files with the names one.html and two.html in the first_day_stuff directory using a single command.</li>
+  	<ul>Create multiple files with the names one.html and two.html in the first_day_stuff directory using a single command.</ul>
 	</p>
 </div>
 <div>
 <!-- Make JS that displays the solution -->
-<button>Display Solution</button>
+<button id = "solution1-b">Display Solution</button>
 <!-- Format this text // Default hide this html -->
-	<p>To create the folder with the name of first_day_stuff use - <br>
-	<code>mkdir first_day_stuff</code><br>
+	<p id = "solution1-a">To create the folder with the name of first_day_stuff use - <br>
+	<code id = "solution1-a">mkdir first_day_stuff</code><br>
 	To create an HTML file with the name of first_day use - <br>
-	<code>touch first_day.html</code> <br>
+	<code id =  "solution1-a">touch first_day.html</code> <br>
 	To open the folder containing the HTML file use - <br>
-	<code>cd first_day_stuff</code><br>
+	<code id =  "solution1-a">cd first_day_stuff</code><br>
 	To create multiple directories use - <br>
-	<code>mkdir one_folder second_folder</code><br>
+	<code id =  "solution1-a">mkdir one_folder second_folder</code><br>
 	Make sure you go back to the first_day_stuff directory with this command - <br>
-	<code>cd ~ </code><br>
-	<code>cd first_day_stuff</code> <br>
+	<code id =  "solution1-a">cd ~ </code><br>
+	<code id =  "solution1-a">cd first_day_stuff</code> <br>
 	To create multiple files use - <br>
-	<code>touch one.html two.html</code> <br>
+	<code id =  "solution1-a">touch one.html two.html</code> <br>
 	</p>
 </div>
 <div>
@@ -73,21 +76,114 @@ There is also backend development where the data and logic stored on the server.
 <h1>Create Your First HTML Document Assignment</h1>
 	<p>Assignment:<br>
 	In a new HTML file, create the basic structure of an HTML document and include the following in it:<br>
- 		<li>DOCTYPE declaration.</li>
- 		<li>Head tag with a title tag.</li>
- 		<li>H1 tag with a title of your choice.</li>
- 		<li>Embed an image.</li>
- 		<li>Create the following three links on your page:</li>
-  		<li>One link that is target="_blank" so that it opens a new tab when clicked on.</li>
-  		<li>Make the second link bold.</li>
-  		<li>Make the third link a placeholder so it goes nowhere.</li><br>
+ 		<ul>DOCTYPE declaration.</ul>
+ 		<ul>Head tag with a title tag.</ul>
+ 		<ul>H1 tag with a title of your choice.</ul>
+ 		<ul>Embed an image.</ul>
+ 		<ul>Create the following three links on your page:</ul>
+  		<ul>One link that is target="_blank" so that it opens a new tab when clicked on.</ul>
+  		<ul>Make the second link bold.</ul>
+  		<ul>Make the third link a placeholder so it goes nowhere.</ul><br>
 	Bonus:<br>
-			<li>Create an ordered list of steps to make a sandwich.</li>
-			<li>Create an unordered list of 5 bands/musicians you like.</li>
-			<li>Create a table with 2 columns (animal class, animal name) and have 4 rows of animals.</li>
-			<li>Use an alternate way of separating links without line breaks.</li>
-			<li>Embed a YouTube video of your favorite band/musician.</li>
+			<ul>Create an ordered list of steps to make a sandwich.</ul>
+			<ul>Create an unordered list of 5 bands/musicians you like.</ul>
+			<ul>Create a table with 2 columns (animal class, animal name) and have 4 rows of animals.</ul>
+			<ul>Use an alternate way of separating links without line breaks.</ul>
+			<ul>Embed a YouTube video of your favorite band/musician.</ul>
 </p>	
 </div>
+<div>
+<button id = "solution2-b">Display Solution</button>
+	<p id = "solution2-a">To declare a doctype - <br>
+			<code>
+				&lt;!DOCTYPE&gt;<br />
+				&lt;html&gt;<br />
+				&lt;body&gt;<br />
+				YOUR CODE GOES IN HERE!<br />
+				&lt;/body&gt;<br />
+				&lt;/html&gt;<br />
+			</code>
+			<br>
+	To create a head tag and a title tag - <br>
+			<code>
+				&lt;head&gt;<br />
+				&lt;title&gt;<br />
+					WHAT SHOWS IN THE BROWSER TAB GOES IN HERE!<br />
+				&lt;/title&gt;<br />
+					THIS IS WHERE YOU LINK ALL YOUR EXTERNAL RESOURCES (CSS AND JS)<br />
+				&lt;/head&gt; <br />
+			</code>
+			<br>
+	To create an h1 tag with a title of your choice: <br>
+			<code>
+				&lt;h1&gt; YOUR TITLE GOES HERE &lt;/h1&gt; <br />
+			</code>
+			<br>
+	To embed an image - <br>
+			<code>
+				&lt;img src = "IMAGE LOCATION GOES HERE"&gt; <br />
+			</code>
+			<br>
+	To create an ordered list (a list with bullet points) - <br>
+			<code>
+				&lt;li&gt;ITEM 1 IN LIST&lt;/li&gt;<br />
+				&lt;li&gt;ITEM 2 IN LIST&lt;/li&gt;<br />
+			</code>
+			<br>
+	To create an unordered list (a list without bullet points) - <br>
+			<code>
+				&lt;ul&gt;ITEM 1 IN LIST&lt;/ul&gt;<br />
+				&lt;ul&gt;ITEM 2 IN LIST&lt;/ul&gt;<br />		
+			</code>
+			<br>
+	To create a table - <br>
+			<code>
+&lt;table&gt;<br />
+  		&lt;tr&gt;<br />
+    		&lt;th&gt;COLUMN NAME&lt;/th&gt;<br />
+    		&lt;th&gt;COLUMN NAME&lt;/th&gt; <br />
+    		&lt;th&gt;COLUMN NAME&lt;/th&gt;<br />
+  		&lt;/tr&gt;<br />
+ 		 	&lt;tr&gt;<br />
+    		&lt;td&gt;ITEM 1&lt;/td&gt;<br />
+   		 	&lt;td&gt;ITEM 1&lt;/td&gt;<br />
+    		&lt;td&gt;ITEM 1&lt;/td&gt;<br />
+ 		 	&lt;/tr&gt;<br />
+  		&lt;tr&gt;<br />
+   		&lt;td&gt;ITEM 2&lt;/td&gt;<br />
+    		&lt;td&gt;ITEM 2&lt;/td&gt;<br />
+    		&lt;td&gt;ITEM 2&lt;/td&gt;<br />
+  		&lt;/tr&gt;<br />
+  		&lt;tr&gt;<br />
+    		&lt;td&gt;ITEM 3&lt;/td&gt;<br />
+    		&lt;td&gt;ITEM 3&lt;/td&gt;<br />
+    		&lt;td&gt;ITEM 3&lt;/td&gt;<br />
+  		&lt;/tr&gt;<br />
+&lt;/table&gt; <br />
+			</code>
+			<br>
+	Mind you! These tags make the text bolded and centered in a table- <br>
+			<code>
+				&lt;th&gt;&lt;/th&gt; <br />
+			</code>
+			<br>
+	While These tags are not bolded and centered in a table - <br>
+			<code>
+				&lt;td&gt;&lt;/td&gt; <br />
+			</code>
+			<br>
+	To separate links without line breaks - <br>
+			<code>
+				&lt;nobr&gt;INSERT CODE HERE&lt;/nobr&gt; <br />
+			</code>
+			<br>
+	To embed a YouTube Music Video - <br>
+		 <code> 
+				&lt;iframe src="YOUTUBE LINK GOES HERE" width="560" height="315" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt; <br />
+		</code>
+	</p>
+
+</div>
 </body>
+<script type="text/javascript" src = "assets/javascript/weekone.js"></script>
 </html>
