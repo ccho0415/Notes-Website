@@ -1,0 +1,17 @@
+.intro#title, .git#title{
+	text-align: center;
+	font-weight: bolder;
+}
+.git#stages{
+	font-size: 18px;
+	line-height: 200%;
+
+}
+.git#config{
+	font-size: 14px;
+	line-height: 200%;
+}
+.git#config-code{
+	background-color: black;
+	color: white;
+}
