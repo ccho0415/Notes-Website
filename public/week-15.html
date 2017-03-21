@@ -426,27 +426,29 @@ app.post("/api/todos", function(req, res) {
 				    Solution
 				  </button>
 				</p>
-
 				<div class="collapse activities" id="sequelizeUpdateDelete-answer-block">
 <!-- Solution Text -->
 				  <div class= "activities">
 				  	<h5>Files : </h5>
 				  	<a href="https://drive.google.com/open?id=0B5F3A-6n-ILuNHNELWd1NUEwcEE">Solved</a><br>
 				  	<h5>Steps : </h5>
-				  	Update the config.json file development object<br>
-				  	Add this code under the DELETE route in the api-routes.js file
+				  	Update the config.json file development database object to fit your MySQL database<br>
+				  	Let's make a  DELETE route in the api-routes.js file
 		          	<pre class ="activities" id ="sequelizeUpdateDelete-answer-1">
 		            	<code class ="activities" id ="sequelizeUpdateDelete-answer-1">
-&nbsp;&nbsp;<span>db.Todo.destroy({</span>
-&nbsp;&nbsp;&nbsp;&nbsp;<span>where: {</span>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>id: req.params.id</span>
-&nbsp;&nbsp;&nbsp;&nbsp;<span>}</span>
-&nbsp;&nbsp;<span>}).then(function(dbTodo) {</span>
-&nbsp;&nbsp;&nbsp;&nbsp;<span>res.json(dbTodo);</span>
-&nbsp;&nbsp;<span>});</span>
+app.delete("/api/todos/:id", function(req, res) {
+  db.Todo.destroy({
+    where: {
+      id: req.params.id
+    }
+  }).then(function(dbTodo) {
+    res.json(dbTodo);
+  });
+});		            	
 		            	</code>
           			</pre>
-          			Add this code under the PUT route in the api-routes.js file
+          			When the user hits this DELETE route under /api/todos/:id (A specific id number) it will delete the data from the ToDo table<br> 
+          			Let's make a PUT route in the api-routes.js file
 		          	<pre class ="activities" id ="sequelizeUpdateDelete-answer-2">
 		            	<code class ="activities" id ="sequelizeUpdateDelete-answer-2">
 &nbsp;&nbsp;<span>db.Todo.update({</span>
