@@ -1,7 +1,7 @@
 <!DOCTYPE>
 <html>
 <head>
-	<title></title>
+	<title>Week Fifteen</title>
 	<link rel="stylesheet" type="text/css" href="../assets/css/reset.css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
 	<link rel="stylesheet" type="text/css" href="../assets/css/week-15.css">
@@ -36,7 +36,8 @@
 		          <a class="dropdown-item" href="#">Unit 12</a>
 		          <a class="dropdown-item" href="#">Unit 13</a>
 		          <a class="dropdown-item" href="#">Unit 14</a>
-		          <a class="dropdown-item" href="week-15.html">Unit 15</a>                            
+		          <a class="dropdown-item" href="week-15.html">Unit 15</a>
+		          <a class="dropdown-item" href="week-16.html">Unit 16</a>    		                                      
 		        </div>
 		      </li>
 		      <li class="nav-item dropdown">
@@ -61,7 +62,7 @@
 		      </li>
 		      <li class="nav-item dropdown">
 		        <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-		          Homeworks
+		          Hackathons
 		        </a>
 		        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
 		          <a class="dropdown-item" href="#">JS Object</a>
@@ -115,99 +116,103 @@
 				  	<h5>Files : </h5>
 				  	<a href="https://drive.google.com/open?id=0B5F3A-6n-ILuWkFxbER2MFVPYzQ">Solved</a><br>
 				  	<h5>Steps : </h5>
-				    Globally Install the Sequelize-cli npm package<br>
+				   If you do not already have it, globally install the Sequelize-cli npm package <br>
 		          	<pre class ="activities" id ="sequelize-cli-answer-1">
 		            	<code class ="activities" id ="sequelize-cli-answer-1">
-<span>npm install -g sequelize-cli</span>             
+npm install -g sequelize-cli           
 		            	</code>
           			</pre>
           			Install the express mysql and sequelize npm packages<br>
 		          	<pre class ="activities" id ="sequelize-cli-answer-2">
 		            	<code>
-<span>npm install express --save</span>		            	
-<span>npm install sequelize --save</span>
-<span>npm install mysql --save</span>
+npm install express --save	            	
+npm install sequelize --save
+npm install mysql --save
 		            	</code>
           			</pre>
           			While at the root of your project directory, run<br>
 		          	<pre class ="activities" id ="sequelize-cli-answer-3">
 		            	<code>
-<span>sequelize init:config init:models</span>              
+sequelize init:config init:models             
 		            	</code>
           			</pre>
-          			Go to the config.json file in the config.json folder and alter the contents of the development object to match your local MySQL database<br>
+          			This will create a config folder and models folder<br>
+          			Go to the config.json file in the config.json folder and alter the contents of the development database object to match your local MySQL database<br>
           			Create a test.js file in the models folder. This will be our model.<br>
           			Inside the file add in the following code:<br>
 		          	<pre class ="git" id ="sequelize-cli-answer-4">
 		            	<code>
-<span>module.exports = function(sequelize, DataTypes){</span>
-&nbsp;&nbsp;<span>var Model = sequelize.define("Model",{</span>
-&nbsp;&nbsp;&nbsp;&nbsp;<span>name: DataTypes.STRING,</span>    		      
-&nbsp;&nbsp;&nbsp;&nbsp;<span>bio: DataTypes.TEXT</span>             
-&nbsp;&nbsp;<span>});</span>		            	
-&nbsp;&nbsp;<span>return Model;</span>
-<span>}</span>  		            	
+module.exports = function(sequelize, DataTypes){
+  var Model = sequelize.define("Model",{
+    name: DataTypes.STRING,   		      
+    bio: DataTypes.TEXT            
+  });            	
+  return Model;
+}	            	
 						</code>
           			</pre>
+          			This code will be our model. In this model we have 2 columns, name and bio.<br>
           			In order to create tables in our database from the models, we need to sync them with our database. To do this, we'll utilize the sequelize.sync() method.<br>
           			Go to your server.js file and add in the following code.<br>
           			<pre class = "activities" id = "sequelize-cli-answer-5">
           				<code>
-<span>var express = require("express");</span>
-<span>var db = require("./models");</span>
+var express = require("express");
+var db = require("./models");
 
-<span>var app = express();</span>
-<span>var PORT = process.env.PORT || 8080;</span>
+var app = express();
+var PORT = process.env.PORT || 8080;
 
-<span>db.sequelize.sync().then(function(){</span>
-<span>app.listen(PORT, function() {</span>
-&nbsp;&nbsp;<span>console.log("App listening on PORT " + PORT);</span>
-<span>});</span>
-<span>});</span>   					
+db.sequelize.sync().then(function(){
+  app.listen(PORT, function() {
+    console.log("App listening on PORT " + PORT);
+  });
+}); 					
           				</code>
           			</pre>
+          			This code tells us on server startup, make sure that all the tables are created using sequelize.sync()<br>
           			<h3>IF YOU ARE RUNNING WINDOWS 10</h3>
           			Change your index.js file to this:<br>
           			<pre class = "activities" id = "sequelize-cli-answer-6">
           			<code>
-<span>'use strict';</span>
+'use strict';
 
-<span>var fs        = require('fs');</span>
-<span>var path      = require('path');</span>
-<span>var Sequelize = require('sequelize');</span>
-<span>var basename  = path.basename(module.filename);</span>
-<span>var env       = process.env.NODE_ENV || 'development';</span>
-<span>var config    = require(__dirname + '/../config/config.json')[env];</span>
-<span>var db        = {};</span>
+var fs        = require('fs');
+var path      = require('path');
+var Sequelize = require('sequelize');
+var basename  = path.basename(module.filename);
+var env       = process.env.NODE_ENV || 'development';
+var config    = require(__dirname + '/../config/config.json')[env];
+var db        = {};
 
-<span>if (config.use_env_variable) {</span>
-&nbsp;&nbsp;<span>var sequelize = new Sequelize(process.env[config.use_env_variable]);</span>
-<span>} else {</span>
-&nbsp;&nbsp;<span>var sequelize = new Sequelize(config.database, config.username, config.password, config);</span>
-<span>}</span>
+if (config.use_env_variable) {
+  var sequelize = new Sequelize(process.env[config.use_env_variable]);
+} else {
+  var sequelize = new Sequelize(config.database, config.username, config.password, config);
+}
 
-<span>fs</span>
-&nbsp;&nbsp;<span>.readdirSync(__dirname)</span>
-&nbsp;&nbsp;<span>.filter(function(file) {</span>
-&nbsp;&nbsp;&nbsp;&nbsp;<span>return (file.indexOf('.') !== 0) && (file !== basename) && (file.slice(-3) === '.js');</span>
-&nbsp;&nbsp;<span>})</span>
-&nbsp;&nbsp;<span>.forEach(function(file) {</span>
-&nbsp;&nbsp;&nbsp;&nbsp;<span>var model = sequelize['import'](path.join(__dirname, file));</span>
-&nbsp;&nbsp;&nbsp;&nbsp;<span>db[model.name] = model;</span>
-&nbsp;&nbsp;<span>});</span>
+fs
+  .readdirSync(__dirname)
+  .filter(function(file) {
+    return (file.indexOf('.') !== 0) && (file !== basename) && (file.slice(-3) === '.js');
+  })
+  .forEach(function(file) {
+    var model = sequelize['import'](path.join(__dirname, file));
+    db[model.name] = model;
+  });
 
-<span>Object.keys(db).forEach(function(modelName) {</span>
-&nbsp;&nbsp;<span>if (db[modelName].associate) {</span>
-&nbsp;&nbsp;&nbsp;&nbsp;<span>db[modelName].associate(db);</span>
-&nbsp;&nbsp;<span>}</span>
-<span>});</span>
+Object.keys(db).forEach(function(modelName) {
+  if (db[modelName].associate) {
+    db[modelName].associate(db);
+  }
+});
 
-<span>db.sequelize = sequelize;</span>
-<span>db.Sequelize = Sequelize;</span>
+db.sequelize = sequelize;
+db.Sequelize = Sequelize;
 
-<span>module.exports = db; </span>         				
+module.exports = db;     				
           			</code>
           			</pre>
+          			Windows 10 has a weird error where it will mess around with this file and cause sequelize to break. So make sure your index.js file looks like this code above <br>
          			Run your server.js file<br>
 				  </div>
 <!-- Solution Text Ends -->
@@ -251,112 +256,72 @@
 				  	<h5>Files : </h5>
 				  	<a href="https://drive.google.com/open?id=0B5F3A-6n-ILuQUdLbG95cXlsbFU">Solved</a><br>
 				  	<h5>Steps : </h5>
-				    Creating the database
+				    Create the database in mysql using create database
 		          	<pre class ="activities" id ="ormToSequelize-answer-1">
 		            	<code>
-<span>mysql > create database todolist_db</span>             
+mysql > create database todolist_db            
 		            	</code>
           			</pre>
+          			Go to the orm.js file and delete a bunch of code<br>
           			What the file should look like after deleting references to orm.js file inside the api-routes.js file:
 		          	<pre class ="activities" id ="ormToSequelize-answer-2">
 		            	<code>
-<span>module.exports = function(app) {
+module.exports = function(app) {
 
-&nbsp;&nbsp;<span>  app.get("/api/todos", function(req, res) {</span>
+  app.get("/api/todos", function(req, res) {
 
-&nbsp;&nbsp;<span>  });</span>
+  });
 
-&nbsp;&nbsp;<span>  app.post("/api/todos", function(req, res) {</span>
+  app.post("/api/todos", function(req, res) {
 
-&nbsp;&nbsp;<span>  });</span>
+  });
 
-&nbsp;&nbsp;<span>  app.delete("/api/todos/:id", function(req, res) {</span>
+  app.delete("/api/todos/:id", function(req, res) {
 
-&nbsp;&nbsp;<span>  });</span>
+  });
 
-&nbsp;&nbsp;<span>  app.put("/api/todos", function(req, res) {</span>
+  app.put("/api/todos", function(req, res) {
 
-&nbsp;&nbsp;<span>  });</span>
-<span>};
+  });
+};
 		            	</code>
           			</pre>
           			Delete the config folder in the root directory of your assignment <br>
-          			Run npm install in the root directory of your assignment <br>
-          			Run these commands in the terminal while you are int the directory of your assignment:
+          			Run npm install in the root directory of your assignment (This will install all the npm packages preset in the package.json)<br>
+          			Run this commands in the terminal while you are in the directory of your assignment:
 		          	<pre class ="activities" id ="ormToSequelize-answer-1">
 		            	<code>
-<span>sequelize init:models init:config</span>             
+sequelize init:models init:config           
 		            	</code>
           			</pre>
-					<h3>IF YOU ARE RUNNING WINDOWS 10</h3>
-          			Change your index.js file to this:
-          			<pre class = "activities" id = "ormToSequelize-answer-2">
-          			<code>
-<span>'use strict';</span>
-
-<span>var fs        = require('fs');</span>
-<span>var path      = require('path');</span>
-<span>var Sequelize = require('sequelize');</span>
-<span>var basename  = path.basename(module.filename);</span>
-<span>var env       = process.env.NODE_ENV || 'development';</span>
-<span>var config    = require(__dirname + '/../config/config.json')[env];</span>
-<span>var db        = {};</span>
-
-<span>if (config.use_env_variable) {</span>
-&nbsp;&nbsp;<span>var sequelize = new Sequelize(process.env[config.use_env_variable]);</span>
-<span>} else {</span>
-&nbsp;&nbsp;<span>var sequelize = new Sequelize(config.database, config.username, config.password, config);</span>
-<span>}</span>
-
-<span>fs</span>
-&nbsp;&nbsp;<span>.readdirSync(__dirname)</span>
-&nbsp;&nbsp;<span>.filter(function(file) {</span>
-&nbsp;&nbsp;&nbsp;&nbsp;<span>return (file.indexOf('.') !== 0) && (file !== basename) && (file.slice(-3) === '.js');</span>
-&nbsp;&nbsp;<span>})</span>
-&nbsp;&nbsp;<span>.forEach(function(file) {</span>
-&nbsp;&nbsp;&nbsp;&nbsp;<span>var model = sequelize['import'](path.join(__dirname, file));</span>
-&nbsp;&nbsp;&nbsp;&nbsp;<span>db[model.name] = model;</span>
-&nbsp;&nbsp;<span>});</span>
-
-<span>Object.keys(db).forEach(function(modelName) {</span>
-&nbsp;&nbsp;<span>if (db[modelName].associate) {</span>
-&nbsp;&nbsp;&nbsp;&nbsp;<span>db[modelName].associate(db);</span>
-&nbsp;&nbsp;<span>}</span>
-<span>});</span>
-
-<span>db.sequelize = sequelize;</span>
-<span>db.Sequelize = Sequelize;</span>
-
-<span>module.exports = db; </span>         				
-          			</code>
-          			</pre>
-          			Go to the config.json file in the config.json folder and alter the contents of the development object to match your local MySQL database<br>
-          			Create a todo.js in the model folder and insert in the following code:
+          			Go to the config.json file in the config.json folder and alter the contents of the development database object to match your local MySQL database<br>
+          			Create a todo.js in the model folder and create the todo model
 		          	<pre class ="activities" id ="ormToSequelize-answer-3">
 		            	<code>
-<span>module.exports = function(sequelize, DataTypes) {</span>
-&nbsp;&nbsp;<span>var Todo = sequelize.define("Todo", {</span>
-&nbsp;&nbsp;&nbsp;&nbsp;<span>text: DataTypes.STRING,</span>
-&nbsp;&nbsp;&nbsp;&nbsp;<span>complete: DataTypes.BOOLEAN</span>
-&nbsp;&nbsp;<span>});</span>
-&nbsp;&nbsp;<span>return Todo;</span>
-<span>};</span>   
+module.exports = function(sequelize, DataTypes) {
+  var Todo = sequelize.define("Todo", {
+    text: DataTypes.STRING,
+    complete: DataTypes.BOOLEAN
+  });
+  return Todo;
+};   
 		            	</code>
           			</pre>
-          			Add this code in under the dependencies in your server.js file
+          			Let's set up the server.js file with dependencies and .sync();<br>
+          			Require the models folder under the dependencies in your server.js file
 		          	<pre class ="activities" id ="ormToSequelize-answer-4">
 		            	<code>
-<span>var db = require("./models");</span>             
+var db = require("./models");             
 		            	</code>
           			</pre>
-          			At the end of your file (where the app.listen is in) add a sequelize.sync()
+          			Add a Seqeuelize Sync at the end of the file.
 		          	<pre class ="activities" id ="ormToSequelize-answer-4">
 		            	<code>
-<span>db.sequelize.sync().then(function(){</span>
-&nbsp;&nbsp;<span>app.listen(PORT, function() {</span>
-&nbsp;&nbsp;&nbsp;&nbsp;<span>console.log("App listening on PORT " + PORT);</span>
-&nbsp;&nbsp;<span>});</span>
-<span>});</span>      
+db.sequelize.sync().then(function(){
+  app.listen(PORT, function() {
+    console.log("App listening on PORT " + PORT);
+  });
+});     
 		            	</code>
           			</pre>
           			Run your server.js file	
@@ -400,26 +365,33 @@
 				  	<h5>Files : </h5>
 				  	<a href="https://drive.google.com/open?id=0B5F3A-6n-ILuWkFxbER2MFVPYzQ">Solved</a><br>
 				  	<h5>Steps : </h5>
-				    Update the config.json file development object<br>
-				    Add this code under the GET route in the api-routes.js file
+				    Update the config.json file development database object to match your mySQL database<br>
+				    Let's add code for what the server should do when the user hits the GET route. (requests for information)
 		          	<pre class ="activities" id ="sequelizeCreateRead-answer-1">
 		            	<code class ="activities" id ="sequelizeCreateRead-answer-1">
-&nbsp;&nbsp;<span>db.Todo.findAll({}).then(function(dbTodo) {</span>
-&nbsp;&nbsp;&nbsp;&nbsp;<span>res.json(dbTodo);</span>
-&nbsp;&nbsp;<span>});</span>         
+
+app.get("/api/todos", function(req, res) {
+  db.Todo.findAll({}).then(function(dbTodo) {
+    res.json(dbTodo);
+  });  
+});		            	       
 		            	</code>
           			</pre>
-          			Add this code under the POST route in the api-routes.js file
+          			In this case if the user hits the GET route /api/todos they request the database to find everything in the Todo Table and print it out in json form<br>
+          			Next Let's add code for what the server should do when the user hits the POST route (Inputs in information);
 		          	<pre class ="activities" id ="sequelizeCreateRead-answer-2">
 		            	<code class ="activities" id ="sequelizeCreateRead-answer-2">
-&nbsp;&nbsp;<span>db.Todo.create({</span>
-&nbsp;&nbsp;&nbsp;&nbsp;<span>text: req.body.text,</span>
-&nbsp;&nbsp;&nbsp;&nbsp;<span>complete: req.body.complete</span>
-&nbsp;&nbsp;<span>}).then(function(dbTodo) {</span>
-&nbsp;&nbsp;&nbsp;&nbsp;<span>res.json(dbTodo);</span>
-&nbsp;&nbsp;<span>});</span>		            	         
+app.post("/api/todos", function(req, res) {
+  db.Todo.create({
+    text: req.body.text,
+    complete: req.body.complete  
+  }).then(function(dbTodo) { 
+    res.json(dbTodo); 
+  });  
+});		            			            	         
 		            	</code>
           			</pre>
+          			In this case if the user hits the POST route /api/todos they will request the database to make a new todo with the information inputted by the user. (This information is grabbed by body-parser)<br>
           			Run the server.js file         			
 				  </div>
 <!-- Solution Text Ends -->
