@@ -451,18 +451,21 @@ app.delete("/api/todos/:id", function(req, res) {
           			Let's make a PUT route in the api-routes.js file
 		          	<pre class ="activities" id ="sequelizeUpdateDelete-answer-2">
 		            	<code class ="activities" id ="sequelizeUpdateDelete-answer-2">
-&nbsp;&nbsp;<span>db.Todo.update({</span>
-&nbsp;&nbsp;&nbsp;&nbsp;<span>text: req.body.text,</span>
-&nbsp;&nbsp;&nbsp;&nbsp;<span>complete: req.body.complete</span>
-&nbsp;&nbsp;<span>}, {</span>
-&nbsp;&nbsp;&nbsp;&nbsp;<span>where: {</span>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>id: req.body.id</span>
-&nbsp;&nbsp;&nbsp;&nbsp;<span>}</span>
-&nbsp;&nbsp;<span>}).then(function(dbTodo) {</span>
-&nbsp;&nbsp;&nbsp;&nbsp;<span>res.json(dbTodo);</span>
-&nbsp;&nbsp;<span>});</span>
+app.put("/api/todos", function(req, res) {
+  db.Todo.update({
+    text: req.body.text,
+    complete: req.body.complete
+  }, {
+    where: {
+      id: req.body.id
+    } 
+  }).then(function(dbTodo) {
+    res.json(dbTodo);
+  });
+});		            	
 		            	</code>
           			</pre>
+          			When the user hits the PUT route under /api/todos it will update the data from the ToDo table<br>
           			Run the server.js file         							  	
 				  </div>
 <!-- Solution Text Ends -->
@@ -502,7 +505,7 @@ app.delete("/api/todos/:id", function(req, res) {
 				  	<h5>Files : </h5>
 				  	<a href="https://drive.google.com/open?id=0B5F3A-6n-ILuYklZWjNwdzNPNmc">Solved</a><br>
 				  	<h5>Steps : </h5>
-				  	Add this code to the post.js model after the first object
+				  	Let's create a relationship in the post.js model. You can do this through declaring classMethods after declaring what type of columns you want in the table. This code goes in after the first object (which should have datatypes in it):
 		          	<pre class ="activities" id ="postAuthorAssociation-answer-1">
 		            	<code class ="activities" id ="postAuthorAssociation-answer-1">
     ,{
@@ -558,7 +561,7 @@ app.delete("/api/todos/:id", function(req, res) {
 				  	<h5>Files : </h5>
 				  	<a href="https://drive.google.com/open?id=0B5F3A-6n-ILuNzRnVVd2b001Uk0">Solved</a><br>
 				  	<h5>Steps : </h5>
-				  	Go to the post-api-routes files and change the first two get routes to this:
+				  	Let's make 2 seperate get routes in the post-api-routes file. (One for finding all and one for by id)
 		          	<pre class ="activities" id ="postAuthorJoins-answer-1">
 		            	<code class ="activities" id ="postAuthorJoins-answer-1">
   app.get("/api/posts", function(req, res) {
@@ -586,7 +589,7 @@ app.delete("/api/todos/:id", function(req, res) {
   });		            	         
 		            	</code>
           			</pre>
-          			Go to the author-api route files and change the first two get routes to this:
+          			Let's make 2 seperate get routes in the author-api route files. (One for finding all and one for by id)
 		          	<pre class ="activities" id ="postAuthorJoins-answer-2">
 		            	<code class ="activities" id ="postAuthorJoins-answer-2">
   app.get("/api/authors", function(req, res) {
