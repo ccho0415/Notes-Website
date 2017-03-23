@@ -167,7 +167,30 @@
 		<p>8. If mongod starts but closes after a series of prompts, make sure you created the data/db directory in your root directory, MongoDB cannot run without this directory (see steps 4.1-4.2).</p><br>	
 		<p>9. If you’re still encountering issues starting mongod, please ask for assistance from one of the TAs or the instructor.</p><br>	
 		<p>10. If you do not want to us homebrew, you can alternatively <a href = "https://docs.mongodb.com/v3.0/tutorial/install-mongodb-on-os-x"> follow these instructions:</a>. However, installing MongoDB without homebrew can be a bit of a headache. Installing homebrew on your mac will make your life as a web developer a metric ton easier. </p><br>	
+		<h1>Queries for Creating dbs, inserting data and finding data</h1> 
+		<p>// Start up a new database by switching to it.<br>
+		// NOTE: The db does not exist until you create a collection.<br>
+		use <code>[Database Name]db</code></p><br>
+		<p>Show the current db by running db.<br>
+		<code>db</code></p><br>
+		<p>Insert data into the  database with this command.<br>
+		NOTE: This will create the collection automatically,<br>
+		ALSO, TAKE NOTE: the contents of the insert are basically a JS object, and include an array. <br>
+		<code>db.[Collection Name].insert({"column 1": "value of column 1", "column 2":"value of column 2", "column 3": ["value of column 3", "value of column 3, "value of column 3"]})</code></p><br>
+		<p>Find all data in a Collection with <code>db.[COLLECTION NAME].find()</code><br>
+		NOTE: the MongoDB _id was created automatically. </p><br>
+		<p>Adding .pretty() makes the data more readable. <br>
+		<code>db.iWantToGoToThere.find().pretty()</code></p><br>
+		<p>Find specific data by matching a field.<br>
+		<code>db.[collection name].find({"column": "value of that column"}) </code>
+		<p>Find specific data by matching an _id.<br>
+		<code>db.iWantToGoToThere.find({_id:[COPY AN OBJECTID FROM THE PREVIOUS FIND RESULTS]});</code></p><br>
+		<p></p><br>								
 	</div>
 	<!-- Class Note Codes Ends -->
+	<!-- Activity Code starts -->
+	<div>
+		
+	</div>
 </body>
 </html>
